@@ -1,0 +1,9 @@
+config BR2_PACKAGE_CRYPTO_TRANSCEIVER
+	bool "crypto_transceiver"
+	select BR2_PACKAGE_LIBCODEC2
+	help
+	  Services for digital voice encoding/decoding,
+	  encryption/decryption, and modulation/demodulation over
+	  narrowband radio
+
+	  https://github.com/aarmono/crypto_transceiver
