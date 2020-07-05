@@ -23,6 +23,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 endef
 
 define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
+	$(INSTALL) -m 0755 $(@D)/S29configure $(TARGET_DIR)/etc/init.d/S29configure
 	$(INSTALL) -m 0755 $(@D)/S30transmit $(TARGET_DIR)/etc/init.d/S30transmit
 	$(INSTALL) -m 0755 $(@D)/S31receive $(TARGET_DIR)/etc/init.d/S31receive
 endef
