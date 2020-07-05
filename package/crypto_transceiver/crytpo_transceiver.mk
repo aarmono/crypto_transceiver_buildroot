@@ -13,10 +13,18 @@ CRYPTO_TRANSCEIVER_DEPENDENCIES = libcodec2
 
 define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_tx $(TARGET_DIR)/usr/bin/crypto_tx
-	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_tx $(TARGET_DIR)/usr/bin/crypto_tx
-	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_tx $(TARGET_DIR)/usr/bin/crypto_tx
+	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_rx $(TARGET_DIR)/usr/bin/crypto_rx
+
+	$(INSTALL) -m 0755 $(@D)/transmit.sh  $(TARGET_DIR)/usr/bin/transmit.sh
+	$(INSTALL) -m 0755 $(@D)/receive.sh $(TARGET_DIR)/usr/bin/receive.sh
+
 	$(INSTALL) -m 0644 $(@D)/crypto_tx.ini $(TARGET_DIR)/etc/crypto_tx.ini
 	$(INSTALL) -m 0644 $(@D)/crypto_rx.ini $(TARGET_DIR)/etc/crypto_rx.ini
+endef
+
+define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
+	$(INSTALL) -m 0755 $(@D)/S30transmit $(TARGET_DIR)/etc/init.d/S30transmit
+	$(INSTALL) -m 0755 $(@D)/S31receive $(TARGET_DIR)/etc/init.d/S31receive
 endef
 
 $(eval $(cmake-package))
