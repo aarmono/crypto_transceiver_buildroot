@@ -18,6 +18,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/transmit.sh  $(TARGET_DIR)/usr/bin/transmit.sh
 	$(INSTALL) -m 0755 $(@D)/receive.sh $(TARGET_DIR)/usr/bin/receive.sh
 	$(INSTALL) -m 0755 $(@D)/configure.sh $(TARGET_DIR)/usr/bin/configure.sh
+	$(INSTALL) -m 0755 $(@D)/restore.sh $(TARGET_DIR)/usr/bin/restore.sh
 
 	$(INSTALL) -m 0644 $(@D)/crypto_tx.ini $(TARGET_DIR)/etc/crypto_tx.ini
 	$(INSTALL) -m 0644 $(@D)/crypto_rx.ini $(TARGET_DIR)/etc/crypto_rx.ini
