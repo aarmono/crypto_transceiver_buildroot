@@ -22,6 +22,8 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 
 	$(INSTALL) -m 0644 $(@D)/crypto_tx.ini $(TARGET_DIR)/etc/crypto_tx.ini
 	$(INSTALL) -m 0644 $(@D)/crypto_rx.ini $(TARGET_DIR)/etc/crypto_rx.ini
+
+	$(INSTALL) -m 0644 $(@D)/startup.wav $(TARGET_DIR)/usr/share/sounds/startup.wav
 endef
 
 define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
