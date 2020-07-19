@@ -26,6 +26,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0644 $(@D)/startup.wav $(TARGET_DIR)/usr/share/sounds/startup.wav
 	$(INSTALL) -m 0644 $(@D)/beep.wav $(TARGET_DIR)/usr/share/sounds/beep.wav
 	$(INSTALL) -m 0644 $(@D)/ack.wav $(TARGET_DIR)/usr/share/sounds/ack.wav
+	$(INSTALL) -m 0644 $(@D)/nack.wav $(TARGET_DIR)/usr/share/sounds/nack.wav
 endef
 
 define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
