@@ -32,6 +32,7 @@ endef
 
 define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 $(@D)/S27configure $(TARGET_DIR)/etc/init.d/S27configure
+	$(INSTALL) -m 0755 $(@D)/S28log2speech_rx $(TARGET_DIR)/etc/init.d/S28log2speech_rx
 	$(INSTALL) -m 0755 $(@D)/S29log2speech_tx $(TARGET_DIR)/etc/init.d/S29log2speech_tx
 	$(INSTALL) -m 0755 $(@D)/S30transmit $(TARGET_DIR)/etc/init.d/S30transmit
 	$(INSTALL) -m 0755 $(@D)/S31receive $(TARGET_DIR)/etc/init.d/S31receive
