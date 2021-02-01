@@ -25,6 +25,9 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0644 $(@D)/crypto_tx.ini $(TARGET_DIR)/etc/crypto_tx.ini
 	$(INSTALL) -m 0644 $(@D)/crypto_rx.ini $(TARGET_DIR)/etc/crypto_rx.ini
 
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/equalizers
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/etc/equalizers $(@D)/equalizers/*.txt
+
 	$(INSTALL) -m 0644 $(@D)/startup.wav $(TARGET_DIR)/usr/share/sounds/startup.wav
 	$(INSTALL) -m 0644 $(@D)/beep.wav $(TARGET_DIR)/usr/share/sounds/beep.wav
 	$(INSTALL) -m 0644 $(@D)/ack.wav $(TARGET_DIR)/usr/share/sounds/ack.wav
