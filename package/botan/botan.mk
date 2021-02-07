@@ -4,11 +4,12 @@
 #
 ################################################################################
 
-BOTAN_VERSION = 2.14.0
+BOTAN_VERSION = 2.17.3
 BOTAN_SOURCE = Botan-$(BOTAN_VERSION).tar.xz
 BOTAN_SITE = http://botan.randombit.net/releases
 BOTAN_LICENSE = BSD-2-Clause
 BOTAN_LICENSE_FILES = license.txt
+BOTAN_CPE_ID_VALID = YES
 
 BOTAN_INSTALL_STAGING = YES
 

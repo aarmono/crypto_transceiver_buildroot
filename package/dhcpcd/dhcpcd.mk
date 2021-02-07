@@ -4,32 +4,44 @@
 #
 ################################################################################
 
-DHCPCD_VERSION = 8.0.3
+DHCPCD_VERSION = 9.4.0
 DHCPCD_SOURCE = dhcpcd-$(DHCPCD_VERSION).tar.xz
 DHCPCD_SITE = http://roy.marples.name/downloads/dhcpcd
 DHCPCD_DEPENDENCIES = host-pkgconf
 DHCPCD_LICENSE = BSD-2-Clause
 DHCPCD_LICENSE_FILES = LICENSE
 
+DHCPCD_CONFIG_OPTS = \
+	--libexecdir=/lib/dhcpcd \
+	--os=linux \
+	--privsepuser=dhcpcd
+
+# AUDIT_ARCH_NDS32 is only available since kernel >= 5.2
+ifeq ($(BR2_nds32):$(BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_2),y:)
+DHCPCD_CONFIG_OPTS += --disable-privsep
+endif
+
+ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+DHCPCD_CONFIG_OPTS += --with-udev
+DHCPCD_DEPENDENCIES += udev
+else
+DHCPCD_CONFIG_OPTS += --without-udev
+endif
+
 ifeq ($(BR2_STATIC_LIBS),y)
 DHCPCD_CONFIG_OPTS += --enable-static
 endif
 
 ifeq ($(BR2_USE_MMU),)
-DHCPCD_CONFIG_OPTS += --disable-fork
+DHCPCD_CONFIG_OPTS += --disable-fork --disable-privsep
 endif
 
 define DHCPCD_CONFIGURE_CMDS
-	(cd $(@D); \
-	$(TARGET_CONFIGURE_OPTS) ./configure \
-		--os=linux \
-		--libexecdir=/lib/dhcpcd \
-		$(DHCPCD_CONFIG_OPTS) )
+	(cd $(@D); $(TARGET_CONFIGURE_OPTS) ./configure $(DHCPCD_CONFIG_OPTS))
 endef
 
 define DHCPCD_BUILD_CMDS
-	$(TARGET_MAKE_ENV) $(MAKE) \
-		-C $(@D) all
+	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) all
 endef
 
 define DHCPCD_INSTALL_TARGET_CMDS
@@ -50,6 +62,10 @@ define DHCPCD_INSTALL_INIT_SYSTEMD
 		$(TARGET_DIR)/usr/lib/systemd/system/dhcpcd.service
 endef
 endif
+
+define DHCPCD_USERS
+	dhcpcd -1 dhcpcd -1 * - - - dhcpcd user
+endef
 
 # NOTE: Even though this package has a configure script, it is not generated
 # using the autotools, so we have to use the generic package infrastructure.

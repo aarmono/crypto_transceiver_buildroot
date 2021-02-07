@@ -4,11 +4,12 @@
 #
 ################################################################################
 
-LFTP_VERSION = 4.9.1
+LFTP_VERSION = 4.9.2
 LFTP_SOURCE = lftp-$(LFTP_VERSION).tar.xz
 LFTP_SITE = http://lftp.yar.ru/ftp
 LFTP_LICENSE = GPL-3.0+
 LFTP_LICENSE_FILES = COPYING
+LFTP_CPE_ID_VALID = YES
 LFTP_DEPENDENCIES = readline zlib host-pkgconf
 
 # Help lftp finding readline and zlib

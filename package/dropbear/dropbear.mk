@@ -4,13 +4,15 @@
 #
 ################################################################################
 
-DROPBEAR_VERSION = 2020.79
+DROPBEAR_VERSION = 2020.81
 DROPBEAR_SITE = https://matt.ucc.asn.au/dropbear/releases
 DROPBEAR_SOURCE = dropbear-$(DROPBEAR_VERSION).tar.bz2
 DROPBEAR_LICENSE = MIT, BSD-2-Clause, Public domain
 DROPBEAR_LICENSE_FILES = LICENSE
 DROPBEAR_TARGET_BINS = dropbearkey dropbearconvert scp
 DROPBEAR_PROGRAMS = dropbear $(DROPBEAR_TARGET_BINS)
+DROPBEAR_CPE_ID_VENDOR = dropbear_ssh_project
+DROPBEAR_CPE_ID_PRODUCT = dropbear_ssh
 
 # Disable hardening flags added by dropbear configure.ac, and let
 # Buildroot add them when the relevant options are enabled. This
@@ -79,6 +81,8 @@ DROPBEAR_POST_EXTRACT_HOOKS += DROPBEAR_ENABLE_REVERSE_DNS
 endif
 
 ifeq ($(BR2_PACKAGE_DROPBEAR_SMALL),y)
+DROPBEAR_LICENSE += , Unlicense, WTFPL
+DROPBEAR_LICENSE_FILES += libtommath/LICENSE libtomcrypt/LICENSE
 DROPBEAR_CONF_OPTS += --disable-zlib --enable-bundled-libtom
 else
 define DROPBEAR_BUILD_FEATURED

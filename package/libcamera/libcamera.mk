@@ -5,18 +5,21 @@
 ################################################################################
 
 LIBCAMERA_SITE = https://git.linuxtv.org/libcamera.git
-LIBCAMERA_VERSION = 96fab38e02792a109c0d35ca2154e95a7b4c8fcb
+LIBCAMERA_VERSION = ab72e6641c56e876f91edee57a8969982a3ab9b7
 LIBCAMERA_SITE_METHOD = git
 LIBCAMERA_DEPENDENCIES = \
 	host-openssl \
 	host-pkgconf \
+	host-python3-jinja2 \
+	host-python3-ply \
 	host-python3-pyyaml \
 	gnutls
 LIBCAMERA_CONF_OPTS = \
-	-Dandroid=false \
-	-Ddocumentation=false \
-	-Dtest=false
-LIBCAMERA_INSTALL_STAGING = yes
+	-Dandroid=disabled \
+	-Ddocumentation=disabled \
+	-Dtest=false \
+	-Dwerror=false
+LIBCAMERA_INSTALL_STAGING = YES
 LIBCAMERA_LICENSE = \
 	LGPL-2.1+ (library), \
 	GPL-2.0+ (utils), \
@@ -35,6 +38,10 @@ LIBCAMERA_LICENSE_FILES = \
 	LICENSES/BSD-3-Clause.txt \
 	LICENSES/CC0-1.0.txt \
 	LICENSES/CC-BY-SA-4.0.txt
+
+ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_7),y)
+LIBCAMERA_CXXFLAGS = -faligned-new
+endif
 
 ifeq ($(BR2_PACKAGE_LIBCAMERA_V4L2),y)
 LIBCAMERA_CONF_OPTS += -Dv4l2=true
@@ -61,10 +68,13 @@ LIBCAMERA_DEPENDENCIES += gstreamer1 gst1-plugins-base
 endif
 
 ifeq ($(BR2_PACKAGE_QT5BASE_WIDGETS),y)
+LIBCAMERA_CONF_OPTS += -Dqcam=enabled
 LIBCAMERA_DEPENDENCIES += qt5base
 ifeq ($(BR2_PACKAGE_QT5TOOLS_LINGUIST_TOOLS),y)
 LIBCAMERA_DEPENDENCIES += qt5tools
 endif
+else
+LIBCAMERA_CONF_OPTS += -Dqcam=disabled
 endif
 
 ifeq ($(BR2_PACKAGE_TIFF),y)
@@ -73,6 +83,13 @@ endif
 
 ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
 LIBCAMERA_DEPENDENCIES += udev
+endif
+
+ifeq ($(BR2_PACKAGE_LTTNG_LIBUST),y)
+LIBCAMERA_CONF_OPTS += -Dtracing=enabled
+LIBCAMERA_DEPENDENCIES += lttng-libust
+else
+LIBCAMERA_CONF_OPTS += -Dtracing=disabled
 endif
 
 $(eval $(meson-package))
