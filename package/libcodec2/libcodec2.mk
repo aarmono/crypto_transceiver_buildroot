@@ -5,7 +5,8 @@
 ################################################################################
 
 LIBCODEC2_VERSION = HEAD
-LIBCODEC2_SITE = git://github.com/aarmono/codec2
+LIBCODEC2_SOURCE = master.tar.gz
+LIBCODEC2_SITE = https://github.com/aarmono/codec2/archive/refs/heads
 LIBCODEC2_LICENSE = LGPL-2.1
 LIBCODEC2_LICENSE_FILES = COPYING
 LIBCODEC2_INSTALL_STAGING = YES

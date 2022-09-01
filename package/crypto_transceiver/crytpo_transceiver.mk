@@ -5,7 +5,8 @@
 ################################################################################
 
 CRYPTO_TRANSCEIVER_VERSION = HEAD
-CRYPTO_TRANSCEIVER_SITE = git://github.com/aarmono/crypto_transceiver
+CRYPTO_TRANSCEIVER_SOURCE = master.tar.gz
+CRYPTO_TRANSCEIVER_SITE = https://github.com/aarmono/crypto_transceiver/archive/refs/heads
 CRYPTO_TRANSCEIVER_LICENSE = LGPL-2.1
 CRYPTO_TRANSCEIVER_INSTALL_STAGING = NO
 CRYPTO_TRANSCEIVER_SUPPORTS_IN_SOURCE_BUILD = NO
