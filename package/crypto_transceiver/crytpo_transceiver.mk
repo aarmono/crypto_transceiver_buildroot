@@ -15,6 +15,7 @@ CRYPTO_TRANSCEIVER_DEPENDENCIES = libcodec2
 define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_tx $(TARGET_DIR)/usr/bin/crypto_tx
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_rx $(TARGET_DIR)/usr/bin/crypto_rx
+	$(INSTALL) -m 0755 $(@D)/buildroot-build/crypto_sample_rate $(TARGET_DIR)/usr/bin/crypto_sample_rate
 
 	$(INSTALL) -m 0755 $(@D)/transmit.sh  $(TARGET_DIR)/usr/bin/transmit.sh
 	$(INSTALL) -m 0755 $(@D)/receive.sh $(TARGET_DIR)/usr/bin/receive.sh
