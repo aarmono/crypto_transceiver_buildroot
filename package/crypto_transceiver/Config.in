@@ -5,7 +5,7 @@ config BR2_PACKAGE_CRYPTO_TRANSCEIVER
 	select BR2_PACKAGE_JACK2
 	select BR2_PACKAGE_LIBSAMPLERATE
 	select BR2_PACKAGE_LIBSNDFILE
-	BR2_PACKAGE_LIBGPIOD
+	select BR2_PACKAGE_LIBGPIOD
 	help
 	  Services for digital voice encoding/decoding,
 	  encryption/decryption, and modulation/demodulation over
