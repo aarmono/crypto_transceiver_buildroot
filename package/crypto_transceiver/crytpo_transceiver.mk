@@ -14,6 +14,7 @@ CRYPTO_TRANSCEIVER_DEPENDENCIES = libcodec2 libsamplerate jack2 libgpiod
 
 define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/iniget $(TARGET_DIR)/usr/bin/iniget
+	$(INSTALL) -m 0755 $(@D)/buildroot-build/iniset $(TARGET_DIR)/usr/bin/iniset
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/jack_crypto_tx $(TARGET_DIR)/usr/bin/jack_crypto_tx
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/jack_crypto_rx $(TARGET_DIR)/usr/bin/jack_crypto_rx
 
