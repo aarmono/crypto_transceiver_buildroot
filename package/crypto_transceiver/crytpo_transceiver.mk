@@ -10,7 +10,7 @@ CRYPTO_TRANSCEIVER_SITE = https://github.com/aarmono/crypto_transceiver/archive/
 CRYPTO_TRANSCEIVER_LICENSE = GPL-2.1
 CRYPTO_TRANSCEIVER_INSTALL_STAGING = NO
 CRYPTO_TRANSCEIVER_SUPPORTS_IN_SOURCE_BUILD = NO
-CRYPTO_TRANSCEIVER_DEPENDENCIES = libcodec2 libsamplerate jack2
+CRYPTO_TRANSCEIVER_DEPENDENCIES = libcodec2 libsamplerate jack2 libgpiod
 
 define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/iniget $(TARGET_DIR)/usr/bin/iniget
