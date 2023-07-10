@@ -28,6 +28,9 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 
 	$(INSTALL) -m 0644 $(@D)/crypto.ini $(TARGET_DIR)/etc/crypto.ini
 
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/share/help
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/help $(@D)/help/*.txt
+
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/equalizers
 	$(INSTALL) -m 644 -t $(TARGET_DIR)/etc/equalizers $(@D)/equalizers/*.txt
 
