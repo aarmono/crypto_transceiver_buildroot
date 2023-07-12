@@ -1,0 +1,25 @@
+# This is a sample ude rules file to staticaly assign names to sound cards (in this case USB) that have the exact
+# same product, vendor and serial number. This normally creates card names in pulseaudio that are a combination of this
+# attributes plus an auto incrementing numbering, the problem is that the cards will get their names depending on the 
+# order the cards are plugged in.
+# This udev rules fixes that issues by assigning a name to any card that is plugged in the same USB port, I don't know
+# any other way.
+#
+# Name this file something like /etc/udev/rules.d/95-identical-cards-names.rules
+# The list of cards should be changed to match your system, the only lines you are supposed to change/remove/add 
+# are DEVPATHs, look a the comments comments to see where to get the soundcard path.
+#
+#
+# For alsa card naming (check with `cat /proc/asound/cards`)
+#
+SUBSYSTEM!="sound", GOTO="alsa_naming_end"
+ACTION!="add", GOTO="alsa_naming_end"
+
+# DEVPATH can be obtained by looking at `udevadm monitor --subsystem=sound` while pluging in the sound card.
+# Do one card at a time, the "?" char on card should stay as it matches any card number that may pop on that USB port.
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.5/1-1.5:1.0/sound/card?", ATTR{id}="USB_LR"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/sound/card?", ATTR{id}="USB_UL"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/sound/card?", ATTR{id}="USB_LL"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.4/1-1.4:1.0/sound/card?", ATTR{id}="USB_UR"
+
+LABEL="alsa_naming_end"
