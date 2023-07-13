@@ -17,9 +17,9 @@ ACTION!="add", GOTO="alsa_naming_end"
 
 # DEVPATH can be obtained by looking at `udevadm monitor --subsystem=sound` while pluging in the sound card.
 # Do one card at a time, the "?" char on card should stay as it matches any card number that may pop on that USB port.
-DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.5/1-1.5:1.0/sound/card?", ATTR{id}="USB_LR"
-DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/sound/card?", ATTR{id}="USB_UL"
-DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/sound/card?", ATTR{id}="USB_LL"
-DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.4/1-1.4:1.0/sound/card?", ATTR{id}="USB_UR"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.5/1-1.5:1.0/sound/card?", ATTR{id}="USB_LR", RUN+="/usr/bin/restore.sh USB_LR"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/sound/card?", ATTR{id}="USB_UL", RUN+="/usr/bin/restore.sh USB_UL"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/sound/card?", ATTR{id}="USB_LL", RUN+="/usr/bin/restore.sh USB_LL"
+DEVPATH=="/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.4/1-1.4:1.0/sound/card?", ATTR{id}="USB_UR", RUN+="/usr/bin/restore.sh USB_UR"
 
 LABEL="alsa_naming_end"
