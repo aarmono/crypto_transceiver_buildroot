@@ -20,6 +20,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 
 	$(INSTALL) -m 0755 $(@D)/configure.sh $(TARGET_DIR)/usr/bin/configure.sh
 	$(INSTALL) -m 0755 $(@D)/restore.sh $(TARGET_DIR)/usr/bin/restore.sh
+	$(INSTALL) -m 0755 $(@D)/seed.sh $(TARGET_DIR)/usr/bin/seed.sh
 
 	$(INSTALL) -m 0755 $(@D)/start_jackd_tx.sh $(TARGET_DIR)/usr/bin/start_jackd_tx.sh
 	$(INSTALL) -m 0755 $(@D)/start_jackd_rx.sh $(TARGET_DIR)/usr/bin/start_jackd_rx.sh
