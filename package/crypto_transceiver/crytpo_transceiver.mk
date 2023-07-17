@@ -18,6 +18,8 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/jack_crypto_tx $(TARGET_DIR)/usr/bin/jack_crypto_tx
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/jack_crypto_rx $(TARGET_DIR)/usr/bin/jack_crypto_rx
 
+	$(INSTALL) -m 0644 $(@D)/shell_functions.sh $(TARGET_DIR)/etc/profile.d/shell_functions.sh
+
 	$(INSTALL) -m 0755 $(@D)/configure.sh $(TARGET_DIR)/usr/bin/configure.sh
 	$(INSTALL) -m 0755 $(@D)/restore.sh $(TARGET_DIR)/usr/bin/restore.sh
 	$(INSTALL) -m 0755 $(@D)/initialize.sh $(TARGET_DIR)/usr/bin/initialize.sh
