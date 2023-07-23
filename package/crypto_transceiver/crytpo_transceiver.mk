@@ -23,6 +23,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/configure.sh $(TARGET_DIR)/usr/bin/configure.sh
 	$(INSTALL) -m 0755 $(@D)/restore.sh $(TARGET_DIR)/usr/bin/restore.sh
 	$(INSTALL) -m 0755 $(@D)/initialize.sh $(TARGET_DIR)/usr/bin/initialize.sh
+	$(INSTALL) -m 0755 $(@D)/volume_buttons.sh $(TARGET_DIR)/usr/bin/volume_buttons.sh
 
 	$(INSTALL) -m 0755 $(@D)/start_jackd_tx.sh $(TARGET_DIR)/usr/bin/start_jackd_tx.sh
 	$(INSTALL) -m 0755 $(@D)/start_jackd_rx.sh $(TARGET_DIR)/usr/bin/start_jackd_rx.sh
@@ -39,6 +40,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 
 	$(INSTALL) -m 0644 $(@D)/secure.wav $(TARGET_DIR)/usr/share/sounds/secure.wav
 	$(INSTALL) -m 0644 $(@D)/insecure.wav $(TARGET_DIR)/usr/share/sounds/insecure.wav
+	$(INSTALL) -m 0644 $(@D)/beep.wav $(TARGET_DIR)/usr/share/sounds/beep.wav
 endef
 
 define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
@@ -47,6 +49,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 $(@D)/S29jackd_rx $(TARGET_DIR)/etc/init.d/S29jackd_rx
 	$(INSTALL) -m 0755 $(@D)/S30jack_crypto_tx $(TARGET_DIR)/etc/init.d/S30jack_crypto_tx
 	$(INSTALL) -m 0755 $(@D)/S31jack_crypto_rx $(TARGET_DIR)/etc/init.d/S31jack_crypto_rx
+	$(INSTALL) -m 0755 $(@D)/S32volume $(TARGET_DIR)/etc/init.d/S32volume
 endef
 
 $(eval $(cmake-package))
