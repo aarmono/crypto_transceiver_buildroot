@@ -17,18 +17,15 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/iniset $(TARGET_DIR)/usr/bin/iniset
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/jack_crypto_tx $(TARGET_DIR)/usr/bin/jack_crypto_tx
 	$(INSTALL) -m 0755 $(@D)/buildroot-build/jack_crypto_rx $(TARGET_DIR)/usr/bin/jack_crypto_rx
-	$(INSTALL) -m 0755 $(@D)/buildroot-build/volume_buttons $(TARGET_DIR)/usr/bin/volume_buttons
-	$(INSTALL) -m 0755 $(@D)/buildroot-build/key_combo $(TARGET_DIR)/usr/bin/key_combo
+	$(INSTALL) -m 0755 $(@D)/buildroot-build/keypad_reader $(TARGET_DIR)/usr/bin/keypad_reader
 
 	$(INSTALL) -m 0644 $(@D)/shell_functions.sh $(TARGET_DIR)/etc/profile.d/shell_functions.sh
 
 	$(INSTALL) -m 0755 $(@D)/configure.sh $(TARGET_DIR)/usr/bin/configure.sh
 	$(INSTALL) -m 0755 $(@D)/restore.sh $(TARGET_DIR)/usr/bin/restore.sh
 	$(INSTALL) -m 0755 $(@D)/initialize.sh $(TARGET_DIR)/usr/bin/initialize.sh
-	$(INSTALL) -m 0755 $(@D)/volume.sh $(TARGET_DIR)/usr/bin/volume.sh
-	$(INSTALL) -m 0755 $(@D)/volume_buttons.sh $(TARGET_DIR)/usr/bin/volume_buttons.sh
-	$(INSTALL) -m 0755 $(@D)/combo_update.sh $(TARGET_DIR)/usr/bin/combo_update.sh
-	$(INSTALL) -m 0755 $(@D)/key_combo.sh $(TARGET_DIR)/usr/bin/key_combo.sh
+	$(INSTALL) -m 0755 $(@D)/keypad_updater.sh $(TARGET_DIR)/usr/bin/keypad_updater.sh
+	$(INSTALL) -m 0755 $(@D)/keypad_reader.sh $(TARGET_DIR)/usr/bin/keypad_reader.sh
 
 	$(INSTALL) -m 0755 $(@D)/start_jackd_tx.sh $(TARGET_DIR)/usr/bin/start_jackd_tx.sh
 	$(INSTALL) -m 0755 $(@D)/start_jackd_rx.sh $(TARGET_DIR)/usr/bin/start_jackd_rx.sh
@@ -54,8 +51,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 $(@D)/S29jackd_rx $(TARGET_DIR)/etc/init.d/S29jackd_rx
 	$(INSTALL) -m 0755 $(@D)/S30jack_crypto_tx $(TARGET_DIR)/etc/init.d/S30jack_crypto_tx
 	$(INSTALL) -m 0755 $(@D)/S31jack_crypto_rx $(TARGET_DIR)/etc/init.d/S31jack_crypto_rx
-	$(INSTALL) -m 0755 $(@D)/S32volume $(TARGET_DIR)/etc/init.d/S32volume
-	$(INSTALL) -m 0755 $(@D)/S33key_combo $(TARGET_DIR)/etc/init.d/S33key_combo
+	$(INSTALL) -m 0755 $(@D)/S32keypad_control $(TARGET_DIR)/etc/init.d/S32keypad_control
 endef
 
 $(eval $(cmake-package))
