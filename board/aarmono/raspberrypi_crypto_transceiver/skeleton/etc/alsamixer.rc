@@ -1,0 +1,2 @@
+bind Backspace mixer_close
+bind End mixer_close
