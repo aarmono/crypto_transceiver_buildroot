@@ -44,5 +44,5 @@ disable_splash=1
 
 # Set Pin 2 as a Pull output. Can be useful to drive a switching relay
 # to route headset/microphone/PTT through the Pi when it is powered on
-# or passthru in-> out when it is off
+# or passthru headset -> radio when it is off
 gpio=2=op,dl,pn
