@@ -1,0 +1,22 @@
+--- a/Makefile	2021-09-07 05:23:53.000000000 -0700
++++ b/Makefile	2023-07-30 10:25:08.434112802 -0700
+@@ -30,8 +30,8 @@
+ CC=$(CCARCH)gcc
+ STRIP=$(CCARCH)strip
+ 
+-CFLAGS=-c -Wall -Werror 
+-LDFLAGS=
++CFLAGS+=-Wall -Werror 
++LDFLAGS+=
+ 
+ EXECUTABLE=sdtool
+ INCLUDES=sd.h sdlinux.h
+@@ -50,7 +50,7 @@
+ 
+ obj/%.o: src/%.c $(INCLUDES_SRC)
+ 	@mkdir -p obj/
+-	$(CC) $(CFLAGS) $< -o $@
++	$(CC) $(CFLAGS) -c $< -o $@
+ 
+ clean:
+ 	rm -f $(OBJECTS_OBJ) $(EXECUTABLE)

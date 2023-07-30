@@ -1,0 +1,6 @@
+config BR2_PACKAGE_SDTOOL
+	bool "sdtool"
+	help
+	  A small tool for managing the write protection flag of SD cards.
+
+	  https://github.com/BertoldVdb/sdtool
