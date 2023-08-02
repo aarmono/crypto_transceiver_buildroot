@@ -24,6 +24,7 @@ null::sysinit:/bin/ln -sf /proc/self/fd/0 /dev/stdin
 null::sysinit:/bin/ln -sf /proc/self/fd/1 /dev/stdout
 null::sysinit:/bin/ln -sf /proc/self/fd/2 /dev/stderr
 null::sysinit:/bin/hostname -F /etc/hostname
+tty1::sysinit:/usr/bin/dialog --infobox "System Initializing" 0 0
 # now run any rc scripts
 null::sysinit:/etc/init.d/rcS
 
