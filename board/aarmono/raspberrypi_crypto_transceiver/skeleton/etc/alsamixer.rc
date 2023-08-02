@@ -1,2 +1,4 @@
 bind Backspace mixer_close
 bind End mixer_close
+bind / mixer_toggle_mute
+bind * mixer_toggle_mute
