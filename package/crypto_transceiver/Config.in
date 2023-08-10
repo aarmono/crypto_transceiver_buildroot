@@ -10,6 +10,9 @@ config BR2_PACKAGE_CRYPTO_TRANSCEIVER
 	select BR2_PACKAGE_INOTIFY_TOOLS
 	select BR2_PACKAGE_ESPEAK
 	select BR2_PACKAGE_SDTOOL
+	select BR2_PACKAGE_ETHTOOL
+	select BR2_PACKAGE_OPENSSH
+	select BR2_PACKAGE_RP_PPPOE
 	help
 	  Services for digital voice encoding/decoding,
 	  encryption/decryption, and modulation/demodulation over

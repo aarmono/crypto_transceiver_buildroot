@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+exec /sbin/ifconfig "$1" up
