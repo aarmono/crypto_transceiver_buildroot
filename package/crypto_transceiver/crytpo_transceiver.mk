@@ -24,11 +24,13 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/configure.sh $(TARGET_DIR)/usr/bin/configure.sh
 	$(INSTALL) -m 0755 $(@D)/restore.sh $(TARGET_DIR)/usr/bin/restore.sh
 	$(INSTALL) -m 0755 $(@D)/initialize.sh $(TARGET_DIR)/usr/bin/initialize.sh
-	$(INSTALL) -m 0755 $(@D)/keypad_updater.sh $(TARGET_DIR)/usr/bin/keypad_updater.sh
+	$(INSTALL) -m 0755 $(@D)/keypad_updater_radio.sh $(TARGET_DIR)/usr/bin/keypad_updater_radio.sh
+	$(INSTALL) -m 0755 $(@D)/keypad_updater_keyfill.sh $(TARGET_DIR)/usr/bin/keypad_updater_keyfill.sh
 	$(INSTALL) -m 0755 $(@D)/keypad_reader.sh $(TARGET_DIR)/usr/bin/keypad_reader.sh
 
 	$(INSTALL) -m 0755 $(@D)/start_pppoe_server.sh $(TARGET_DIR)/usr/bin/start_pppoe_server.sh
 	$(INSTALL) -m 0755 $(@D)/start_pppoe_client.sh $(TARGET_DIR)/usr/bin/start_pppoe_client.sh
+	$(INSTALL) -m 0755 $(@D)/start_keyfill_led.sh $(TARGET_DIR)/usr/bin/start_keyfill_led.sh
 
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/keys
 
@@ -61,6 +63,7 @@ define CRYPTO_TRANSCEIVER_INSTALL_INIT_SYSV
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/init.d/manual
 	$(INSTALL) -m 0755 $(@D)/S10pppoe_server $(TARGET_DIR)/etc/init.d/manual/S10pppoe_server
 	$(INSTALL) -m 0755 $(@D)/S10pppoe_client $(TARGET_DIR)/etc/init.d/manual/S10pppoe_client
+	$(INSTALL) -m 0755 $(@D)/S60keyfill_led $(TARGET_DIR)/etc/init.d/manual/S60keyfill_led
 endef
 
 define CRYPTO_TRANSCEIVER_USERS
