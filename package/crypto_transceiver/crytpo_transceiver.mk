@@ -33,8 +33,9 @@ define CRYPTO_TRANSCEIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/start_keyfill_led.sh $(TARGET_DIR)/usr/bin/start_keyfill_led.sh
 
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/keys
-	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/black_keys
-	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/dkeks
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/black
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/black/keys
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/black/dkeks
 
 	$(INSTALL) -m 0755 $(@D)/start_jackd_tx.sh $(TARGET_DIR)/usr/bin/start_jackd_tx.sh
 	$(INSTALL) -m 0755 $(@D)/start_jackd_rx.sh $(TARGET_DIR)/usr/bin/start_jackd_rx.sh
