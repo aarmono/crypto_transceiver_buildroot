@@ -13,6 +13,7 @@ config BR2_PACKAGE_CRYPTO_TRANSCEIVER
 	select BR2_PACKAGE_ETHTOOL
 	select BR2_PACKAGE_OPENSSH
 	select BR2_PACKAGE_RP_PPPOE
+	select BR2_PACKAGE_UTIL_LINUX_UUIDD
 	help
 	  Services for digital voice encoding/decoding,
 	  encryption/decryption, and modulation/demodulation over
