@@ -15,4 +15,4 @@
 bindkey radiolist \052 TOGGLE
 bindkey checklist \052 TOGGLE
 
-screen_color = (CYAN,RED,ON)
+screen_color = (WHITE,RED,ON)
